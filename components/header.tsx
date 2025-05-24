@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import { MenuItem } from "@/components/menu-item";
 import Logo from "@/public/images/logo-white.png";
 import Typo from "@/public/images/logo-text.png";
+import { MenuItem } from "@/components/menu-item";
+import LoginButton from "@/components/login-button";
 
 export const Header: React.FC = () => {
   return (
@@ -23,8 +24,10 @@ export const Header: React.FC = () => {
             <MenuItem link="/core-features" name="Core Features" />
             <MenuItem link="/contact-us" name="Contact Us" />
           </nav>
-          
-          <div className="flex items-center gap-4 text-white">Login Button</div>
+
+          <div className="flex items-center gap-4 text-white">
+            <LoginButton />
+          </div>
         </div>
       </div>
     </header>
