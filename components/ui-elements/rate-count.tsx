@@ -8,7 +8,7 @@ export const RateCount = ({ rate, count }: { rate: number; count: number }) => (
     <div>
       <span className="font-extrabold">{rate.toFixed(1)}</span>/
       <span className="text-xs">10</span>
-      <Tooltip title="Vote Count" className="text-xs">
+      <Tooltip title={<span className="text-xs text-black">Vote Count</span>} className="text-xs" color="#eee">
         <span className="text-xs mx-1 text-blue-400 cursor-pointer">
           ({count})
         </span>
