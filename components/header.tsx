@@ -11,14 +11,14 @@ import { HeaderMobileMenu } from "./header-mobile-menu";
 export const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 bg-black shadow-lg">
-      <div className="container mx-auto flex items-center justify-between px-4 py-2">
+      <div className="container mx-auto flex items-center justify-between max-w-7xl">
         <div className="flex items-center text-lg font-bold text-orange-600">
           <Link href="/" className="flex items-center">
             <Image height={90} src={Logo} alt="Ambyint Videos Logo" />
             <Image height={50} src={Typo} alt="Ambyint Videos Text" />
           </Link>
         </div>
-
+        
         <div className="hidden md:flex items-center space-x-6">
           <nav className="flex space-x-6">
             <MenuItem link="/" name="Home" />
@@ -28,7 +28,7 @@ export const Header: React.FC = () => {
           </nav>
           <LoginButton />
         </div>
-
+        
         <HeaderMobileMenu />
       </div>
     </header>
