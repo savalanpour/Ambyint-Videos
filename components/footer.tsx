@@ -11,7 +11,7 @@ import Logo from "@/public/images/logo-white.png";
 
 export const Footer = () => {
   return (
-    <footer className="bg-black py-8 text-white">
+    <footer className="bg-gray-900 py-8 text-white">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="mb-8 grid grid-cols-1 md:grid-cols-2">
           <div>

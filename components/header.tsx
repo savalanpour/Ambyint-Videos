@@ -10,7 +10,7 @@ import { HeaderMobileMenu } from "./header-mobile-menu";
 
 export const Header: React.FC = () => {
   return (
-    <header className="sticky top-0 z-50 bg-black shadow-lg">
+    <header className="sticky top-0 z-50 bg-black shadow-lg border-b border-customBorder">
       <div className="container mx-auto px-2 xl:px-0 flex items-center justify-between max-w-7xl">
         <div className="flex items-center text-lg font-bold text-orange-600">
           <Link href="/" className="flex items-center">

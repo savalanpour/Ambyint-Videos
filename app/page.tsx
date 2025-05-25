@@ -7,7 +7,7 @@ import { RateCount } from "@/components/ui-elements/rate-count";
 export default async function Home() {
   const latestMovies = await getLatestMovies(1);
   return (
-    <main className="flex flex-col items-center justify-center py-4">
+    <main className="flex flex-col items-center justify-center py-4 bg-black text-white">
       <div className="container max-w-7xl">
         <h1 className="w-full text-3xl font-bold mb-4 text-left">
           Latest Videos
