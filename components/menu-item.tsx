@@ -22,8 +22,8 @@ export const MenuItem = (props: MenuItemPropsType) => {
       href={link}
       className={
         isActiveRoute(link)
-          ? "font-bold text-orange-600"
-          : "text-gray-400 hover:text-orange-600"
+          ? "font-bold !text-orange-600"
+          : "!text-gray-400 hover:text-orange-600"
       }
     >
       {name}
