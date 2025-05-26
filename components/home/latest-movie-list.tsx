@@ -37,6 +37,7 @@ export function LatestMovieList({ initialMovies, totalPages }: Props) {
         {movies.map((movie) => (
           <Link key={movie.id} href={`/movie/${movie.id}`} className="block">
             <div
+              data-testid="movie-card"
               key={movie.id}
               className="border border-gray-500 rounded-md shadow p-2"
             >
