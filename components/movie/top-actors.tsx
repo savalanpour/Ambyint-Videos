@@ -25,7 +25,7 @@ export function TopActors({ cast }: Props) {
               alt={actor.name}
               width={100}
               height={100}
-              className="rounded-full object-cover"
+              className="rounded-full object-cover min-h-[150px] bg-white"
             />
             <span className="mt-2 text-sm font-medium text-center">
               {actor.name}

@@ -17,7 +17,7 @@ export function MovieDetails({ details }: Props) {
           alt={details.title}
           width={500}
           height={750}
-          className="rounded-md shadow-lg"
+          className="rounded-md shadow-lg border border-gray-800"
         />
       </div>
 
