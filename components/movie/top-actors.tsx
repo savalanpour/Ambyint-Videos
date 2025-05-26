@@ -10,11 +10,11 @@ export function TopActors({ cast }: Props) {
   return (
     <div className="mt-8 max-w-7xl mx-auto">
       <h2 className="text-2xl font-semibold mb-4">Top Actors</h2>
-      <div className="grid grid-cols-3 sm:grid-cols-5 gap-6">
+      <div className="grid grid-cols-3 sm:grid-cols-7 gap-6">
         {cast.map((actor) => (
           <div
             key={actor.cast_id}
-            className="flex flex-col items-center bg-gray-900 p-4 rounded-lg"
+            className="flex flex-col items-center p-4 rounded-lg"
           >
             <Image
               src={

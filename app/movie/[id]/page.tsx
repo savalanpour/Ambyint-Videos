@@ -14,7 +14,7 @@ export default async function MoviePage({ params }: Props) {
   const details = await getMovieDetails(id);
   const credits = await getMovieCredits(id);
 
-  const topCast = credits.cast.slice(0, 10);
+  const topCast = credits.cast.slice(0, 7);
 
   return (
     <main className="px-6 py-8 bg-black text-white">
