@@ -25,3 +25,51 @@ export interface LatestMoviesResponse {
   total_pages: number;
   total_results: number;
 }
+
+export interface Company {
+  id: number;
+  logo_path: string | null;
+  name: string;
+  origin_country: string;
+}
+
+export interface MovieDetails {
+  id: number;
+  title: string;
+  overview: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
+  release_date: string;
+  runtime: number;
+  vote_average: number;
+  vote_count: number;
+  genres: { id: number; name: string }[];
+  production_companies: Company[];
+}
+
+export interface CastMember {
+  cast_id: number;
+  character: string;
+  credit_id: string;
+  gender: number | null;
+  id: number;
+  name: string;
+  order: number;
+  profile_path: string | null;
+}
+
+export interface CrewMember {
+  credit_id: string;
+  department: string;
+  gender: number | null;
+  id: number;
+  job: string;
+  name: string;
+  profile_path: string | null;
+}
+
+export interface MovieCredits {
+  id: number;
+  cast: CastMember[];
+  crew: CrewMember[];
+}
