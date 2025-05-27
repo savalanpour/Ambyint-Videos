@@ -76,3 +76,20 @@ export interface MovieCredits {
   cast: CastMember[];
   crew: CrewMember[];
 }
+
+export interface MovieImages {
+  backdrops: MovieImage[];
+  id: number;
+  logos: MovieImage[];
+  posters: MovieImage[];
+}
+
+export interface MovieImage {
+  aspect_ratio: number;
+  file_path: string;
+  height: number;
+  iso_639_1: string | null;
+  vote_average: number;
+  vote_count: number;
+  width: number;
+}

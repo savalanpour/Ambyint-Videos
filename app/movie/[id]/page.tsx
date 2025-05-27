@@ -3,9 +3,10 @@ import { getMovieDetails, getMovieCredits } from "@/services/movies-service";
 import { MovieDetails } from "@/components/movie/movie-details";
 import { TopActors } from "@/components/movie/top-actors";
 import { ProductionCompanies } from "@/components/movie/production-companies";
+import { MovieImages } from "@/components/movie/movie-images";
 
 interface Props {
-  params: { id: string };
+  params: { id: number };
 }
 
 export default async function MoviePage({ params }: Props) {
@@ -17,10 +18,11 @@ export default async function MoviePage({ params }: Props) {
   const topCast = credits.cast.slice(0, 7);
 
   return (
-    <main className="px-6 py-8 bg-black text-white">
+    <main className="py-8 bg-black text-white">
       <MovieDetails details={details} />
       <TopActors cast={topCast} />
       <ProductionCompanies companies={details.production_companies} />
+      <MovieImages id={id} />
     </main>
   );
 }
