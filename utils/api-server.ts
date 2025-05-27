@@ -1,5 +1,3 @@
-"use server";
-
 type FetchOptions = RequestInit & {
   baseURL?: string;
   timeout?: number;

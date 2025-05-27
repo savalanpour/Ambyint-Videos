@@ -8,7 +8,7 @@ interface HomeProps {
 
 export default async function Home({ searchParams }: HomeProps) {
   const { query } = await searchParams;
-  const latestMovies = await getLatestMovies(1, query);
+  const latestMovies = await getLatestMovies(1, "now_playing", query);
 
   return (
     <main className="flex flex-col items-center justify-center py-4 bg-black text-white">

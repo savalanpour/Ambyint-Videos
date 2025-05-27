@@ -29,4 +29,7 @@ body {
     transform transition-transform duration-200 ease-out
     hover:scale-[1.02] hover:shadow-lg;
   }
+  .second-button {
+    @apply flex items-center border border-orange-500 text-sm px-4 py-2 cursor-pointer;
+  }
 }

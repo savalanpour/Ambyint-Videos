@@ -42,10 +42,7 @@ export function MovieDetails({ details }: Props) {
       <div className="w-full md:w-2/3 space-y-6 relative">
         <div className="flex justify-between items-center border-b border-gray-600 pb-4">
           <h1 className="text-4xl font-bold flex-1">{details.title}</h1>
-          <span
-            onClick={() => router.push("/")}
-            className="flex items-center border border-orange-500 text-sm px-4 py-2 rounded-md cursor-pointer"
-          >
+          <span onClick={() => router.push("/")} className="second-button">
             <ArrowBigLeft />
             Back
           </span>

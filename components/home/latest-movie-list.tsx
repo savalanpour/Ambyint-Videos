@@ -9,6 +9,7 @@ import { getLatestMovies } from "@/services/movies-service";
 import { debounce } from "@/utils";
 import { MovieCard } from "@/components/home/movie-card";
 import { NotFoundMovie } from "@/components/home/not-found-movie";
+import { FilterButton } from "@/components/home/filter-button";
 
 interface Props {
   initialMovies: Movie[];
@@ -29,11 +30,12 @@ export function LatestMovieList({
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(page < initialTotalPages);
   const [query, setQuery] = useState(initialQuery);
+  const [type, setType] = useState("now_playing");
   const [loading, setLoading] = useState(false);
 
   const loadMore = async () => {
     const nextPage = page + 1;
-    getLatestMovies(nextPage, query).then((data) => {
+    getLatestMovies(nextPage, type, query).then((data) => {
       setMovies((prev) => [...prev, ...data.results]);
       setPage(nextPage);
       if (nextPage >= data.total_pages) {
@@ -48,7 +50,7 @@ export function LatestMovieList({
         setLoading(true);
         setHasMore(true);
         router.push(`/?query=${encodeURIComponent(value)}`);
-        getLatestMovies(page, value).then((data) => {
+        getLatestMovies(page, type, value).then((data) => {
           setMovies(data.results);
           if (1 >= data.total_pages) {
             setHasMore(false);
@@ -56,7 +58,7 @@ export function LatestMovieList({
           setLoading(false);
         });
       }, 500),
-    [router, page]
+    [router, page, type]
   );
 
   useEffect(() => {
@@ -71,12 +73,29 @@ export function LatestMovieList({
     debouncedPush(value);
   };
 
+  const onChangeType = (newType: string) => {
+    setType(newType);
+    setPage(1);
+    setHasMore(true);
+    setLoading(true);
+    getLatestMovies(1, newType, query).then((data) => {
+      setMovies(data.results);
+      if (1 >= data.total_pages) {
+        setHasMore(false);
+      }
+      setLoading(false);
+    });
+  };
+
   return (
     <div className="min-h-96">
       <div className="flex items-center justify-between mb-6">
         <h1 className="w-full flex-1 text-3xl font-bold mb-4 text-left">
           Latest Videos
         </h1>
+        {query === "" && (
+          <FilterButton setFilter={onChangeType} activeFilter={type} />
+        )}
         <Search
           placeholder="Search movies..."
           value={query}
@@ -85,11 +104,7 @@ export function LatestMovieList({
         />
       </div>
       {movies.length === 0 && !loading && <NotFoundMovie query={query} />}
-      <Spin
-        spinning={loading}
-        tip="Loading..."
-        className="bg-black opacity-50 min-h-96"
-      >
+      <Spin spinning={loading} tip="Loading..." className="bg-black opacity-50">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3 min-h-96">
           {/* 
              TODO: Some movies are returned multiple times with the same id, causing duplicate-key errors.

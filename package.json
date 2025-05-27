@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "antd": "^5.25.2",
+    "clsx": "^2.1.1",
     "lucide-react": "^0.511.0",
     "next": "15.1.8",
     "nextjs-toploader": "^3.8.16",
