@@ -1,8 +1,10 @@
 import { test, expect } from "@playwright/test";
 
+const baseUrl = process.env.NEXT_PUBLIC_TEST_URL || "http://localhost:3000";
+
 test.describe("Ambyint Movie Details Page E2E", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("http://localhost:3000/movie/550");
+    await page.goto(`${baseUrl}/movie/550`);
     await expect(page).toHaveURL(/\/movie\/550$/);
   });
 

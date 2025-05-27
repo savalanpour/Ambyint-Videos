@@ -1,8 +1,10 @@
 import { test, expect } from "@playwright/test";
 
+const baseUrl = process.env.NEXT_PUBLIC_TEST_URL || "http://localhost:3000";
+
 test.describe("Ambyint Movie list App E2E", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("http://localhost:3000/");
+    await page.goto(baseUrl);
   });
   test.describe("Homepage", () => {
     test("should show at least one movie card with poster and title", async ({
