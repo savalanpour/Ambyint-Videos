@@ -3,7 +3,7 @@ import { getLatestMovies } from "@/services/movies-service";
 import { LatestMovieList } from "@/components/home/latest-movie-list";
 
 interface HomeProps {
-  searchParams: { query?: string };
+  searchParams: Promise<{ query?: string }>;
 }
 
 export default async function Home({ searchParams }: HomeProps) {

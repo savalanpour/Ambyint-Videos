@@ -23,13 +23,13 @@ export async function getLatestMovies(
   return apiServer<LatestMoviesResponse>(endpoint);
 }
 
-export async function getMovieDetails(id: number) {
+export async function getMovieDetails(id: string) {
   return apiServer<MovieDetails>(
     `/movie/${id}?api_key=${API_KEY}&language=en-US`
   );
 }
 
-export async function getMovieCredits(id: number) {
+export async function getMovieCredits(id: string) {
   return apiServer<MovieCredits>(
     `/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
   );

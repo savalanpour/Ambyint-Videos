@@ -6,12 +6,11 @@ import { ProductionCompanies } from "@/components/movie/production-companies";
 import { MovieImages } from "@/components/movie/movie-images";
 
 interface Props {
-  params: { id: number };
+  params: Promise<{ id: string }>;
 }
 
 export default async function MoviePage({ params }: Props) {
   const { id } = await params; // We should use await here because : https://nextjs.org/docs/messages/sync-dynamic-apis
-
   const details = await getMovieDetails(id);
   const credits = await getMovieCredits(id);
 
@@ -22,7 +21,7 @@ export default async function MoviePage({ params }: Props) {
       <MovieDetails details={details} />
       <TopActors cast={topCast} />
       <ProductionCompanies companies={details.production_companies} />
-      <MovieImages id={id} />
+      <MovieImages id={Number(id)} />
     </main>
   );
 }
