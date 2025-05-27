@@ -12,7 +12,7 @@ export const ReleaseDate = ({ date }: { date: string }) => (
     <Clock8 className="text-orange-600 mr-1" width={16} />
     <div>
       <span className="text-xs text-gray-400">
-        {dayjs(date).format("MMMM D, YYYY")}
+        {date ? dayjs(date).format("MMM D, YYYY") : "N/A"}
       </span>
     </div>
   </Tooltip>

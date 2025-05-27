@@ -1,14 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
+import { Input, Spin } from "antd";
+
 import { ReleaseDate } from "@/components/ui-elements/release-date";
 import { RateCount } from "@/components/ui-elements/rate-count";
 import { Movie } from "@/services/types";
-import Link from "next/link";
 import { getLatestMovies } from "@/services/movies-service";
-import { Input, Spin } from "antd";
+import { debounce } from "@/utils";
 
 interface Props {
   initialMovies: Movie[];
@@ -35,6 +37,7 @@ export function LatestMovieList({
   useEffect(() => {
     const qp = searchParams.get("query") || "";
     setLoading(true);
+    setHasMore(true);
     setQuery(qp);
     setPage(1);
     getLatestMovies(1, qp).then((data) => {
@@ -57,10 +60,24 @@ export function LatestMovieList({
     });
   };
 
+  const debouncedPush = useMemo(
+    () =>
+      debounce((value: string) => {
+        router.push(`/?query=${encodeURIComponent(value)}`);
+      }, 500),
+    [router]
+  );
+
+  useEffect(() => {
+    return () => {
+      debouncedPush.cancel();
+    };
+  }, [debouncedPush]);
+
   const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setQuery(value);
-    router.push(`/?query=${encodeURIComponent(value)}`);
+    debouncedPush(value);
   };
 
   return (
@@ -78,11 +95,11 @@ export function LatestMovieList({
       </div>
       <Spin spinning={loading} tip="Loading..." className="bg-black opacity-50">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3">
+          {/* TODO: Some movies are returned multiple times with the same id, causing duplicate-key errors. This must be resolved on the API/service side to guarantee unique ids, rather than patching it in the frontend. */}
           {movies.map((movie) => (
             <Link key={movie.id} href={`/movie/${movie.id}`} className="block">
               <div
                 data-testid="movie-card"
-                key={movie.id}
                 className="border border-gray-500 rounded-md shadow p-2"
               >
                 <Image
