@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { ReleaseDate } from "@/components/ui-elements/release-date";
-import { RateCount } from "@/components/ui-elements/rate-count";
+import { ReleaseDate } from "@/components/common/release-date";
+import { RateCount } from "@/components/common/rate-count";
 import { MovieDetails as DetailsType } from "@/services/types";
 
 interface Props {

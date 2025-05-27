@@ -19,3 +19,14 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer components {
+  .movie-card {
+    @apply border border-gray-500
+    rounded-md
+    shadow
+    p-2
+    transform transition-transform duration-200 ease-out
+    hover:scale-[1.02] hover:shadow-lg;
+  }
+}

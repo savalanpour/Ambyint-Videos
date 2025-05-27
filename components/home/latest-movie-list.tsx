@@ -1,16 +1,13 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
-import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
 import { Input, Spin } from "antd";
 
-import { ReleaseDate } from "@/components/ui-elements/release-date";
-import { RateCount } from "@/components/ui-elements/rate-count";
 import { Movie } from "@/services/types";
 import { getLatestMovies } from "@/services/movies-service";
 import { debounce } from "@/utils";
+import { MovieCard } from "@/components/home/movie-card";
 
 interface Props {
   initialMovies: Movie[];
@@ -97,32 +94,7 @@ export function LatestMovieList({
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3">
           {/* TODO: Some movies are returned multiple times with the same id, causing duplicate-key errors. This must be resolved on the API/service side to guarantee unique ids, rather than patching it in the frontend. */}
           {movies.map((movie) => (
-            <Link key={movie.id} href={`/movie/${movie.id}`} className="block">
-              <div
-                data-testid="movie-card"
-                className="border border-gray-500 rounded-md shadow p-2"
-              >
-                <Image
-                  src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                  alt={movie.title}
-                  width={290}
-                  height={290}
-                  className="w-full h-auto mb-2 min-h-[342px] bg-gray-800"
-                />
-                <h2 className="text-md font-semibold line-clamp-1">
-                  {movie.title}
-                </h2>
-                <div className="flex mt-2">
-                  <span className="flex flex-1">
-                    <RateCount
-                      rate={movie.vote_average}
-                      count={movie.vote_count}
-                    />
-                  </span>
-                  <ReleaseDate date={movie.release_date} />
-                </div>
-              </div>
-            </Link>
+            <MovieCard movie={movie} key={movie.id} />
           ))}
         </div>
         {hasMore && (
