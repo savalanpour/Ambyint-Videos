@@ -91,7 +91,11 @@ export function LatestMovieList({
         className="bg-black opacity-50 min-h-96"
       >
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3 min-h-96">
-          {/* TODO: Some movies are returned multiple times with the same id, causing duplicate-key errors. This must be resolved on the API/service side to guarantee unique ids, rather than patching it in the frontend. */}
+          {/* 
+             TODO: Some movies are returned multiple times with the same id, causing duplicate-key errors.
+              This must be resolved on the API/service side to guarantee unique ids,
+              rather than patching it in the frontend.
+            */}
           {movies.map((movie) => (
             <MovieCard movie={movie} key={movie.id} />
           ))}

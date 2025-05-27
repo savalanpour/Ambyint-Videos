@@ -13,6 +13,7 @@ export interface Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  budget?: number;
 }
 
 export interface LatestMoviesResponse {
@@ -45,6 +46,8 @@ export interface MovieDetails {
   vote_count: number;
   genres: { id: number; name: string }[];
   production_companies: Company[];
+  budget: number;
+  original_language: string;
 }
 
 export interface CastMember {
