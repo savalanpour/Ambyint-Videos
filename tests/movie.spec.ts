@@ -28,7 +28,7 @@ test.describe("Ambyint Movie list App E2E", () => {
       const initialCount = await cards.count();
 
       await page.getByRole("button", { name: /load more/i }).click();
-      await page.waitForTimeout(2000);
+      await page.waitForTimeout(5000);
       const newCards = page.getByTestId("movie-card");
       const newCount = await newCards.count();
 
@@ -42,6 +42,7 @@ test.describe("Ambyint Movie list App E2E", () => {
       const titleOnGrid = await firstCard.locator("h2").innerText();
 
       await firstCard.click();
+      await page.waitForTimeout(5000);
       await expect(page).toHaveURL(/\/movie\/\d+$/);
 
       const titleOnDetail = await page.locator("h1").innerText();
