@@ -17,9 +17,7 @@
    - [Environment Variables](#environment-variables)
    - [Running Locally](#running-locally)
    - [Production Build](#production-build)
-4. [Usage Examples](#-usage-examples)
-5. [Testing](#-testing)
-6. [Screenshots](#-screenshots)
+4. [Testing](#-testing)
 
 ---
 
