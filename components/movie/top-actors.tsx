@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { CastMember } from "@/services/types";
+import DefaultAvatar from "@/public/images/default-avatar.png";
 
 interface Props {
   cast: CastMember[];
@@ -8,7 +9,7 @@ interface Props {
 
 export function TopActors({ cast }: Props) {
   return (
-    <div className="mt-8 max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto my-8">
       <h2 className="text-2xl font-semibold mb-4">Top Actors</h2>
       <div className="grid grid-cols-3 sm:grid-cols-7 gap-6">
         {cast.map((actor) => (
@@ -20,7 +21,7 @@ export function TopActors({ cast }: Props) {
               src={
                 actor.profile_path
                   ? `https://image.tmdb.org/t/p/w185${actor.profile_path}`
-                  : "/placeholder-profile.png"
+                  : DefaultAvatar
               }
               alt={actor.name}
               width={100}

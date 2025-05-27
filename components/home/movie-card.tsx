@@ -6,6 +6,7 @@ import Image from "next/image";
 import { RateCount } from "@/components/common/rate-count";
 import { ReleaseDate } from "@/components/common/release-date";
 import { Movie } from "@/services/types";
+import DefaultImage from "@/public/images/default-image.png";
 
 interface MovieCardProps {
   movie: Movie;
@@ -16,11 +17,15 @@ export function MovieCard({ movie }: MovieCardProps) {
     <Link href={`/movie/${movie.id}`} className="block hover:text-gray-100">
       <div data-testid="movie-card" className="movie-card">
         <Image
-          src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+          src={
+            movie.poster_path
+              ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+              : DefaultImage
+          }
           alt={movie.title}
           width={290}
           height={290}
-          className="w-full h-auto mb-2 min-h-[342px] bg-gray-800"
+          className="w-full h-auto mb-2 min-h-[342px] bg-gray-500"
         />
         <h2 className="text-md font-semibold line-clamp-1 hover:text-gray-100">
           {movie.title}

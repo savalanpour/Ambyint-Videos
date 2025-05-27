@@ -14,6 +14,7 @@ import {
   Languages,
 } from "lucide-react";
 import { formatMinutesToHours, formatToUSD } from "@/utils";
+import DefaultImage from "@/public/images/default-image.png";
 
 interface Props {
   details: DetailsType;
@@ -26,16 +27,20 @@ export function MovieDetails({ details }: Props) {
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6">
       <div className="w-full md:w-1/3">
         <Image
-          src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
+          src={
+            details.poster_path
+              ? `https://image.tmdb.org/t/p/w500${details.poster_path}`
+              : DefaultImage
+          }
           alt={details.title}
           width={500}
           height={750}
-          className="rounded-md shadow-lg border border-gray-800"
+          className="rounded-md shadow-lg border border-gray-800 bg-gray-500"
         />
       </div>
 
       <div className="w-full md:w-2/3 space-y-6 relative">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center border-b border-gray-600 pb-4">
           <h1 className="text-4xl font-bold flex-1">{details.title}</h1>
           <span
             onClick={() => router.push("/")}
