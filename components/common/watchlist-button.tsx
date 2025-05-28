@@ -24,6 +24,8 @@ export const WatchlistButton: React.FC<WatchlistButtonProps> = ({
   const [accountId, setAccountId] = useState<string | null>(null);
 
   useEffect(() => {
+    // TODO: On mount, fetch the user's watchlist and, if this movieId is included,
+    //  set `inWatchlist` to true so the button renders as “selected.”
     setSessionId(getCookie("session_id"));
     setAccountId(getCookie("account_id"));
   }, []);
