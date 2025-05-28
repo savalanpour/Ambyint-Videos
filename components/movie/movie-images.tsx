@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import ImageGallery from "react-image-gallery";
 import { MovieImage } from "@/services/types";
-import { getMovieImages } from "@/services/movies-service";
+import { getMovieImages } from "@/services/movie-details-service";
 
 import "react-image-gallery/styles/css/image-gallery.css";
 

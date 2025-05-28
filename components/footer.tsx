@@ -93,18 +93,10 @@ export const Footer = () => {
               <ul className="space-y-4">
                 <li>
                   <Link
-                    href="//terms-of-service"
+                    href="/core-features"
                     className="text-gray-400 hover:text-orange-600"
                   >
-                    Term of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/privacy"
-                    className="text-gray-400 hover:text-orange-600"
-                  >
-                    Privacy Policy
+                    Core Features
                   </Link>
                 </li>
               </ul>

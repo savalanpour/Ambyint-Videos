@@ -1,5 +1,8 @@
 import React from "react";
-import { getMovieDetails, getMovieCredits } from "@/services/movies-service";
+import {
+  getMovieDetails,
+  getMovieCredits,
+} from "@/services/movie-details-service";
 import { MovieDetails } from "@/components/movie/movie-details";
 import { TopActors } from "@/components/movie/top-actors";
 import { ProductionCompanies } from "@/components/movie/production-companies";
