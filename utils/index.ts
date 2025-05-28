@@ -46,3 +46,12 @@ export function getCookie(name: string): string | null {
   const match = cookies.find((c) => c.startsWith(`${name}=`));
   return match ? match.split("=")[1] : null;
 }
+
+export function logOut() {
+  const LOGOUT_COOKIES = ["session_id", "username", "avatar_path"];
+  LOGOUT_COOKIES.forEach(
+    (name) =>
+      (document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`)
+  );
+  window.location.replace("/");
+}

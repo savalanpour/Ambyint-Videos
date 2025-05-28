@@ -3,7 +3,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { useTmdbAuth } from "@/hooks/use-tmdb-auth";
 import { CircleUser, ChevronDown } from "lucide-react";
 import { Dropdown, MenuProps } from "antd";
-import { getCookie } from "@/utils";
+import { getCookie, logOut } from "@/utils";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -33,12 +33,8 @@ export default function LoginButton() {
   }, []);
 
   const handleLogout = () => {
-    const LOGOUT_COOKIES = ["session_id", "username", "avatar_path"];
-    LOGOUT_COOKIES.forEach(
-      (name) =>
-        (document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`)
-    );
     setIsLoggedIn(false);
+    logOut();
   };
 
   const menuItems: MenuProps["items"] = useMemo(
