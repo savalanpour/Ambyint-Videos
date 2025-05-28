@@ -32,6 +32,7 @@
   - **Top Rated**
   - **Upcoming**
 - **Movie Search**: Quickly find any movie by title.
+- **Watchlist**: Add movies to your personal watchlist for easy access later.
 
 ### Movie Details page
 
@@ -39,6 +40,15 @@
 - **Top Actors**: See top-billed cast for each film.
 - **Production Companies**: Discover studios behind the movies.
 - **Image Gallery**: Browse stills and posters.
+
+### Watchlist
+
+- **Personalized Watchlist**: Save movies to your watchlist for later viewing.
+- **Watchlist Management**: Easily add or remove movies from your watchlist.
+
+### Login & Authentication
+
+- **User Authentication**: users can log in to manage their watchlist.
 
 ---
 

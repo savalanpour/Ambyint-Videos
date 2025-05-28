@@ -20,7 +20,7 @@ export function FilterButton({
   return (
     <div
       role="group"
-      className="flex items-center border border-orange-600 overflow-hidden rounded-md h-8 mb-6 mr-3"
+      className="hidden md:flex items-center border border-orange-600 overflow-hidden rounded-md h-8 mb-6 mr-3"
     >
       {FILTER_OPTIONS.map((filterOption, idx) => {
         const isActive = activeFilter === filterOption.value;

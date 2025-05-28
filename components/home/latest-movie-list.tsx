@@ -89,8 +89,8 @@ export function LatestMovieList({
 
   return (
     <div className="min-h-96">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="w-full flex-1 text-3xl font-bold mb-4 text-left">
+      <div className="flex flex-col md:flex-row items-center justify-between mb-6">
+        <h1 className="w-full flex-1 text-center text-md md:text-3xl font-bold mb-4 md:text-left">
           Latest Videos
         </h1>
         {query === "" && (

@@ -1,11 +1,11 @@
 import React from "react";
 import { Film } from "lucide-react";
 
-export default function AboutUs() {
+export default function CoreFeatures() {
   return (
-    <main className="px-8 py-20 bg-black text-gray-300">
+    <main className="px-1 md:px-8 py-20 bg-black text-gray-300">
       <div className="max-w-7xl mx-auto space-y-12">
-        <div className="shadow-lg p-8 rounded-lg">
+        <div className="shadow-lg p-2 md:p-8 rounded-lg">
           <div className="flex items-center space-x-4 mb-4">
             <Film size={48} className="text-white" />
             <h1 className="text-3xl font-bold">
@@ -33,6 +33,18 @@ export default function AboutUs() {
                   <strong>Movie Search</strong>: Quickly find any movie by
                   title.
                 </li>
+                <li>
+                  <strong>Latest Movies</strong>: View the latest movies
+                  released in theaters.
+                </li>
+                <li>
+                  <strong>Movie Pagination</strong>: Navigate through multiple
+                  pages of movie listings.
+                </li>
+                <li>
+                  <strong>Responsive Design</strong>: Optimized for both mobile
+                  and desktop devices.
+                </li>
               </ul>
             </section>
 
@@ -55,6 +67,47 @@ export default function AboutUs() {
                 </li>
                 <li>
                   <strong>Image Gallery</strong>: Browse stills and posters.
+                </li>
+                <li>
+                  <strong>Responsive Design</strong>: Optimized for both mobile
+                  and desktop devices.
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h2 className="text-2xl font-semibold mb-2">Watchlist</h2>
+              <ul className="list-disc list-inside space-y-2">
+                <li>
+                  <strong>Save Movies</strong>: Add movies to your personal
+                  watchlist.
+                </li>
+                <li>
+                  <strong>Remove Movies</strong>: Easily remove movies from your
+                  watchlist.
+                </li>
+                <li>
+                  <strong>Persistent Storage</strong>: Watchlist saved in local
+                  storage for future visits.
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h2 className="text-2xl font-semibold mb-2">
+                User Authentication
+              </h2>
+              <ul className="list-disc list-inside space-y-2">
+                <li>
+                  <strong>Login</strong>: Users can log in
+                </li>
+                <li>
+                  <strong>User Avatar</strong>: Display user avatar in the
+                  header
+                </li>
+                <li>
+                  <strong>Register</strong>: New users can create an account.
+                </li>
+                <li>
+                  <strong>Logout</strong>: Users can log out of their account.
                 </li>
               </ul>
             </section>

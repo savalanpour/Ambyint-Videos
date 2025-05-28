@@ -3,9 +3,9 @@ import { Film } from "lucide-react";
 
 export default function AboutUs() {
   return (
-    <main className="px-8 py-20 bg-black text-gray-300">
+    <main className="px-1 md:px-8 py-20 bg-black text-gray-300">
       <div className="max-w-7xl mx-auto space-y-8">
-        <div className="shadow-lg p-8">
+        <div className="shadow-lg p-2 md:p-8">
           <div className="flex items-center space-x-4">
             <Film size={48} />
             <h1 className="text-3xl font-bold">About Ambyint-Videos</h1>
@@ -24,6 +24,8 @@ export default function AboutUs() {
               <li>Actor & crew insights</li>
               <li>Filter movies by category</li>
               <li>Scrolling for more videos</li>
+              <li>Personalized watchlist management</li>
+              <li>Responsive design for all devices</li>
             </ul>
             <h2 className="text-2xl font-semibold">Our Tech Stack</h2>
             <ul className="list-disc list-inside space-y-2">

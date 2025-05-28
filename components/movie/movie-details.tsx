@@ -24,7 +24,7 @@ export function MovieDetails({ details }: Props) {
   const router = useRouter();
 
   return (
-    <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6">
+    <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 px-4 md:px-0">
       <div className="w-full md:w-1/3">
         <Image
           src={
@@ -52,7 +52,7 @@ export function MovieDetails({ details }: Props) {
           <ReleaseDate date={details.release_date} />
         </div>
         <p className="text-lg leading-relaxed">{details.overview}</p>
-        <div className="absolute bottom-0 left-0 right-0 pt-4">
+        <div className="relative md:absolute bottom-0 left-0 right-0 pt-4">
           <p className="leading-relaxed text-sm mb-6 flex items-center">
             <span className="text-white flex items-center mr-2">
               <Hourglass className="mr-2 text-orange-500" width="16" />

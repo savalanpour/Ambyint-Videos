@@ -8,7 +8,7 @@ interface Props {
 
 export function ProductionCompanies({ companies }: Props) {
   return (
-    <div className="mt-12 max-w-7xl mx-auto flex flex-col gap-6">
+    <div className="mt-12 max-w-7xl mx-auto flex flex-col gap-6 px-4 md:px-0">
       <h2 className="text-2xl font-semibold mb-4">Production Companies</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
         {companies.map((company) => (

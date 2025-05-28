@@ -41,7 +41,7 @@ export function MovieImages({ id }: Props) {
   }
 
   return (
-    <div className=" mt-20 py-2">
+    <div className="mt-20 py-2 px-4 md:px-0">
       <h2 className="max-w-7xl mx-auto text-2xl font-semibold mb-4">
         Movie Stills
       </h2>
