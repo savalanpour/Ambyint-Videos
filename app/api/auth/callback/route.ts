@@ -30,7 +30,13 @@ export async function GET(request: Request) {
   const username = accountData.username;
   const avatar_path = accountData.avatar?.gravatar?.hash;
 
-  const response = NextResponse.redirect(new URL("/", request.url));
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  const redirectUrl = request.nextUrl.clone();
+  redirectUrl.pathname = "/";
+
+  const response = NextResponse.redirect(redirectUrl, 307);
+
   response.cookies.set("session_id", session_id);
   response.cookies.set("account_id", String(account_id));
   response.cookies.set("username", String(username));
