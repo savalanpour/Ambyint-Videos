@@ -1,19 +1,22 @@
 import { NextResponse } from "next/server";
 
-const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const request_token = url.searchParams.get("request_token");
   const approved = url.searchParams.get("approved");
 
+  const host =
+    request.headers.get("x-forwarded-host") || request.headers.get("host");
+  const protocol = request.headers.get("x-forwarded-proto") || "https";
+  const origin = `${protocol}://${host}`;
+
   if (!request_token || approved !== "true") {
-    return NextResponse.redirect(new URL("/", request.url));
+    return NextResponse.redirect(new URL("/", origin));
   }
 
   const res = await fetch(
-    `${API_URL}/authentication/session/new?api_key=${API_KEY}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/authentication/session/new?` +
+      `api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -23,20 +26,16 @@ export async function GET(request: Request) {
   const { session_id } = await res.json();
 
   const accountRes = await fetch(
-    `${API_URL}/account?api_key=${API_KEY}&session_id=${session_id}`
+    `${process.env.NEXT_PUBLIC_API_URL}/account?` +
+      `api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}` +
+      `&session_id=${session_id}`
   );
   const accountData = await accountRes.json();
   const account_id = accountData.id;
   const username = accountData.username;
   const avatar_path = accountData.avatar?.gravatar?.hash;
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  const redirectUrl = request.nextUrl.clone();
-  redirectUrl.pathname = "/";
-
-  const response = NextResponse.redirect(redirectUrl, 307);
-
+  const response = NextResponse.redirect(new URL("/", origin));
   response.cookies.set("session_id", session_id);
   response.cookies.set("account_id", String(account_id));
   response.cookies.set("username", String(username));
