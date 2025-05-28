@@ -93,3 +93,8 @@ export interface MovieImage {
   vote_count: number;
   width: number;
 }
+
+export interface TMDBResponse {
+  status_code: number;
+  status_message: string;
+}

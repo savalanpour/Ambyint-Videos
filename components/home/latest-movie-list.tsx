@@ -27,11 +27,11 @@ export function LatestMovieList({
   const router = useRouter();
 
   const [movies, setMovies] = useState<Movie[]>(initialMovies);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState<number>(1);
   const [hasMore, setHasMore] = useState(page < initialTotalPages);
   const [query, setQuery] = useState(initialQuery);
-  const [type, setType] = useState("now_playing");
-  const [loading, setLoading] = useState(false);
+  const [type, setType] = useState<string>("now_playing");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const loadMore = async () => {
     const nextPage = page + 1;

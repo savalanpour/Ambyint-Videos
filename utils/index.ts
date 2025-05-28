@@ -40,3 +40,9 @@ export function formatToUSD(number: number) {
   }
   return `$${number.toLocaleString("en-US")}`;
 }
+
+export function getCookie(name: string): string | null {
+  const cookies = document.cookie.split("; ");
+  const match = cookies.find((c) => c.startsWith(`${name}=`));
+  return match ? match.split("=")[1] : null;
+}

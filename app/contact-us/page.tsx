@@ -10,7 +10,7 @@ interface ContactFormValues {
   message: string;
 }
 
-const ContactUsPage: React.FC = () => {
+export default function ContactUs() {
   const [form] = Form.useForm<ContactFormValues>();
   const [messageApi, contextHolder] = message.useMessage();
 
@@ -80,6 +80,4 @@ const ContactUsPage: React.FC = () => {
       </div>
     </main>
   );
-};
-
-export default ContactUsPage;
+}

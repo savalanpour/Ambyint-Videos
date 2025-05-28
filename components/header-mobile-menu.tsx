@@ -7,7 +7,7 @@ import { MenuItem } from "./menu-item";
 import LoginButton from "./login-button";
 
 export const HeaderMobileMenu = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
 
   return (
     <div className="md:hidden text-white">
